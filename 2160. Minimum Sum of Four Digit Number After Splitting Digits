@@ -1,0 +1,40 @@
+// Own Solution 
+
+class Solution {
+    public int minimumSum(int num) {
+        String temp = Integer.toString(num);
+        char[] ch = new char[temp.length()];
+        for(int i = 0; i < temp.length(); i++) {
+            ch[i] = temp.charAt(i);
+        }
+        
+        Arrays.sort(ch);
+        
+        int firstMinNumber = 0; 
+        int secondMinNumber = 0;
+        String first = Character.toString(ch[0]) + Character.toString(ch[2]);
+        String second = Character.toString(ch[1]) + Character.toString(ch[3]); 
+        firstMinNumber = Integer.parseInt(first);
+        secondMinNumber = Integer.parseInt(second);
+        
+        return firstMinNumber + secondMinNumber;
+    } 
+}
+
+
+//Optimal Solution
+
+class Solution {
+    public int minimumSum(int num) {
+        int[] n = new int[4];
+        int index=0;
+        while(num>0)
+        {
+            n[index++] = num%10;
+            num/=10;
+        }
+        Arrays.sort(n);
+       return (n[0]*10 + n[2] + n[1]*10 + n[3]);
+        
+    }
+}		
