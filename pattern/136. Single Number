@@ -1,0 +1,37 @@
+class Solution {
+    public int singleNumber(int[] nums) {
+//         if (nums.length == 1) {
+//             return nums[0];
+//         }
+        
+//         Map<Integer, Integer> set = new HashMap<>();
+//         int number = 0;
+//         for(int num : nums) {
+//             if (set.containsKey(num)) {
+//                 set.put(num, set.get(num) + 1);
+//             } else {
+//                 set.put(num, 1);
+//             }
+//         }
+//         System.out.println(set);
+// //         // return set.get(1);
+        
+// //         int number = 0;
+// //         for(int i : nums) {
+// //             if (set.containsValue(1)) {
+// //                 number = i;
+// //             }
+// //         }
+//        return number;
+        
+        List<Integer> result = new ArrayList<>();
+        for(int num: nums) {
+            if (!result.contains(num)) {
+                result.add(num);
+            } else {
+                result.remove(new Integer(num));
+            }
+        }
+        return result.get(0);
+    }
+}
